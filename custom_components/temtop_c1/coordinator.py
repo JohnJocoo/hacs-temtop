@@ -66,6 +66,14 @@ class TemtopC1Coordinator(DataUpdateCoordinator[TemtopSensorReading]):
         # data refreshes from HA's Bluetooth manager (RSSI, new path, ...).
         address = self.config_entry.unique_id
         assert address is not None
+
+        # Reclaim any connection slot left occupied by a prior half-open
+        # connection before we try to connect again. Without this, a poll
+        # whose disconnect didn't fully clean up can leave the adapter's
+        # single slot busy, so every subsequent poll fails with
+        # "out of connection slots" until HA eventually reaps it.
+        await close_stale_connections_by_address(address)
+
         ble_device = bluetooth.async_ble_device_from_address(
             self.hass, address, connectable=True
         )
