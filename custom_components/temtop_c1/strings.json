@@ -1,0 +1,34 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "bluetooth_confirm": {
+        "description": "Do you want to set up {name}?"
+      },
+      "user": {
+        "data": {
+          "address": "Device"
+        },
+        "data_description": {
+          "address": "Temtop C1+ devices found nearby via Bluetooth."
+        },
+        "description": "Choose the Temtop C1+ device to add."
+      }
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "no_devices_found": "[%key:common::config_flow::abort::no_devices_found%]",
+      "not_supported": "This device is not a Temtop C1+."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "co2": {
+        "name": "CO2"
+      },
+      "battery": {
+        "name": "Battery"
+      }
+    }
+  }
+}

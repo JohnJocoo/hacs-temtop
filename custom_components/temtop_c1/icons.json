@@ -1,0 +1,9 @@
+{
+  "entity": {
+    "sensor": {
+      "co2": {
+        "default": "mdi:molecule-co2"
+      }
+    }
+  }
+}
