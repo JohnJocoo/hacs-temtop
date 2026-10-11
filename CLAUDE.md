@@ -21,6 +21,7 @@ custom_components/temtop_c1/   # the integration itself
   sensor.py         # CO₂, temperature, humidity, battery entities
   manifest.json     # HA manifest (domain, requirements, bluetooth matchers)
   strings.json / icons.json
+  brand/            # icon.png + icon@2x.png (local brand assets for HACS)
 hacs.json           # HACS metadata (repo-root)
 README.md           # user-facing docs
 ```
